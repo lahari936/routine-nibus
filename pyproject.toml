@@ -7,7 +7,8 @@ requires-python = ">=3.12"
 dependencies = ["pydantic>=2", "pyyaml", "tzdata"]
 
 [project.optional-dependencies]
-dev = ["pytest"]
+dev = ["pytest", "boto3", "moto[dynamodb,stepfunctions,ses,sns,secretsmanager]"]
+infra = ["aws-cdk-lib>=2.180", "constructs"]
 
 [tool.pytest.ini_options]
 pythonpath = ["."]

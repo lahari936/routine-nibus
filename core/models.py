@@ -45,6 +45,11 @@ class Home(BaseModel):
     quiet_hours: tuple[int, int] = (23, 5)  # local hours [start, end)
     checkin_enabled: bool = False
     snapshot_optin: bool = False
+    paused: bool = False  # "vacation" toggle: no checks while set
+    account_id: str | None = None  # linked Ring account
+    chime_device_id: str | None = None  # for the check-in prompt
+    chime_audio_ref: str | None = None
+    snapshot_device_id: str | None = None
 
     @cached_property
     def tz(self) -> ZoneInfo:

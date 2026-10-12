@@ -1,0 +1,58 @@
+{
+  "Comment": "Routine Guardian escalation. Input: {home_id, alert_sk, rule, severity, reason, checkin, caregiver_count, idx: {n: 0}}",
+  "StartAt": "CheckinEnabled",
+  "States": {
+    "CheckinEnabled": {
+      "Type": "Choice",
+      "Choices": [{ "Variable": "$.checkin", "BooleanEquals": true, "Next": "CheckIn" }],
+      "Default": "MoreCaregivers"
+    },
+    "CheckIn": {
+      "Comment": "Play the chime prompt; a doorbell press within 10 minutes resolves the alert as self_checked_in.",
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke.waitForTaskToken",
+      "Parameters": {
+        "FunctionName": "${EscalationFunctionArn}",
+        "Payload": { "action": "checkin", "alert.$": "$", "token.$": "$$.Task.Token" }
+      },
+      "TimeoutSeconds": 600,
+      "ResultPath": "$.checkin_result",
+      "Catch": [{ "ErrorEquals": ["States.ALL"], "ResultPath": "$.checkin_error", "Next": "MoreCaregivers" }],
+      "Next": "Resolved"
+    },
+    "MoreCaregivers": {
+      "Type": "Choice",
+      "Choices": [{ "Variable": "$.idx.n", "NumericLessThanPath": "$.caregiver_count", "Next": "Notify" }],
+      "Default": "MarkUnresolved"
+    },
+    "Notify": {
+      "Comment": "SMS + email to caregiver[idx] with an ack link; wait up to 15 minutes for the ack.",
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke.waitForTaskToken",
+      "Parameters": {
+        "FunctionName": "${EscalationFunctionArn}",
+        "Payload": { "action": "notify", "alert.$": "$", "token.$": "$$.Task.Token" }
+      },
+      "TimeoutSeconds": 900,
+      "ResultPath": "$.ack",
+      "Catch": [{ "ErrorEquals": ["States.ALL"], "ResultPath": "$.notify_error", "Next": "NextCaregiver" }],
+      "Next": "Resolved"
+    },
+    "NextCaregiver": {
+      "Type": "Pass",
+      "Parameters": { "n.$": "States.MathAdd($.idx.n, 1)" },
+      "ResultPath": "$.idx",
+      "Next": "MoreCaregivers"
+    },
+    "MarkUnresolved": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "${EscalationFunctionArn}",
+        "Payload": { "action": "resolve", "alert.$": "$", "status": "unresolved" }
+      },
+      "End": true
+    },
+    "Resolved": { "Type": "Succeed" }
+  }
+}
