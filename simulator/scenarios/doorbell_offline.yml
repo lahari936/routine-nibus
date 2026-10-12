@@ -1,0 +1,16 @@
+description: Normal day, but the doorbell drops off Wi-Fi at 1:30 PM and stays offline.
+date: 2026-10-19
+expect: [device_offline]
+events:
+  - ["07:26", hall_motion, motion_human]
+  - ["07:50", kitchen_motion, motion_human]
+  - ["10:01", doorbell, ding]
+  - ["10:02", front_door, contact_open]
+  - ["10:03", front_door, contact_close]
+  - ["10:45", kitchen_motion, motion_human]
+  - ["11:28", front_door, contact_open]
+  - ["11:29", front_door, contact_close]
+  - ["13:30", doorbell, offline]
+  - ["16:10", hall_motion, motion_human]
+  - ["18:20", kitchen_motion, motion_human]
+  - ["21:10", hall_motion, motion_human]

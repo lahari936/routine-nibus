@@ -1,0 +1,14 @@
+description: Normal morning, but the weekday aide never rings.
+date: 2026-10-19
+expect: [missed_visit]
+events:
+  - ["07:28", hall_motion, motion_human]
+  - ["07:50", kitchen_motion, motion_human]
+  - ["08:10", front_door, contact_open]
+  - ["08:11", front_door, contact_close]
+  - ["09:30", kitchen_motion, motion_human]
+  - ["11:00", hall_motion, motion_human]
+  - ["12:30", kitchen_motion, motion_human]
+  - ["16:10", hall_motion, motion_human]
+  - ["18:20", kitchen_motion, motion_human]
+  - ["21:10", hall_motion, motion_human]

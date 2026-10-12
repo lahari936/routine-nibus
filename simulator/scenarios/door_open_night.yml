@@ -1,0 +1,18 @@
+description: Normal day, but the front door opens at 2:14 AM.
+date: 2026-10-19
+expect: [night_door]
+events:
+  - ["02:12", hall_motion, motion_human]
+  - ["02:14", front_door, contact_open]
+  - ["02:16", front_door, contact_close]
+  - ["07:30", hall_motion, motion_human]
+  - ["07:52", kitchen_motion, motion_human]
+  - ["09:58", doorbell, ding]
+  - ["09:59", front_door, contact_open]
+  - ["10:00", front_door, contact_close]
+  - ["10:30", kitchen_motion, motion_human]
+  - ["11:20", front_door, contact_open]
+  - ["11:21", front_door, contact_close]
+  - ["13:15", kitchen_motion, motion_human]
+  - ["18:20", kitchen_motion, motion_human]
+  - ["21:10", hall_motion, motion_human]

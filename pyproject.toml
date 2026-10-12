@@ -1,0 +1,14 @@
+[project]
+name = "routine-guardian"
+version = "0.1.0"
+description = "Learns an elderly person's home rhythm from Ring events and alerts family on meaningful deviations."
+license = "MIT"
+requires-python = ">=3.12"
+dependencies = ["pydantic>=2", "pyyaml", "tzdata"]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

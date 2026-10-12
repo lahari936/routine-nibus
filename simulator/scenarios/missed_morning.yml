@@ -1,0 +1,15 @@
+description: Mom isn't up by her usual time. Nothing moves until the aide lets herself in at 10:05.
+date: 2026-10-19
+expect: [missed_morning]
+events:
+  - ["10:04", doorbell, motion_human]
+  - ["10:05", doorbell, ding]
+  - ["10:06", front_door, contact_open]
+  - ["10:07", front_door, contact_close]
+  - ["10:10", hall_motion, motion_human]
+  - ["10:40", kitchen_motion, motion_human]
+  - ["11:30", front_door, contact_open]
+  - ["11:31", front_door, contact_close]
+  - ["13:00", kitchen_motion, motion_human]
+  - ["18:20", kitchen_motion, motion_human]
+  - ["21:10", hall_motion, motion_human]

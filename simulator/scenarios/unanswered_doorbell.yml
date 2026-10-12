@@ -1,0 +1,19 @@
+description: Normal morning and aide, then the doorbell rings three times after 4 PM and nobody answers.
+date: 2026-10-19
+expect: [unanswered_doorbell]
+events:
+  - ["07:22", hall_motion, motion_human]
+  - ["07:45", kitchen_motion, motion_human]
+  - ["10:03", doorbell, ding]
+  - ["10:04", front_door, contact_open]
+  - ["10:05", front_door, contact_close]
+  - ["10:40", kitchen_motion, motion_human]
+  - ["11:25", front_door, contact_open]
+  - ["11:26", front_door, contact_close]
+  - ["13:10", kitchen_motion, motion_human]
+  - ["15:40", hall_motion, motion_human]
+  - ["16:01", doorbell, motion_human]
+  - ["16:02", doorbell, ding]
+  - ["16:08", doorbell, ding]
+  - ["16:15", doorbell, ding]
+  - ["16:16", doorbell, motion_human]
