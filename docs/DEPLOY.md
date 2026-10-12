@@ -4,7 +4,7 @@ Prerequisites: AWS credentials, Node.js (for `npx aws-cdk`), Python 3.12+.
 
 ```bash
 python -m venv .venv && .venv/Scripts/activate      # macOS/Linux: source .venv/bin/activate
-pip install -e ".[dev,infra]"
+pip install pydantic pyyaml tzdata boto3 aws-cdk-lib constructs
 npx aws-cdk@2 bootstrap
 npx aws-cdk@2 deploy -c ses_from=you@example.com -c sms_enabled=true
 ```
