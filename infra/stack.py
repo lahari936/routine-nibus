@@ -6,10 +6,11 @@ from pathlib import Path
 import jsii
 from aws_cdk import (ArnFormat, BundlingOptions, CfnOutput, DockerImage, Duration, ILocalBundling, Stack,
                      aws_apigatewayv2 as apigw, aws_apigatewayv2_authorizers as authorizers,
-                     aws_apigatewayv2_integrations as integrations, aws_cognito as cognito, aws_dynamodb as ddb,
-                     aws_iam as iam, aws_lambda as lambda_, aws_scheduler as scheduler,
-                     aws_scheduler_targets as targets, aws_secretsmanager as secretsmanager,
-                     aws_stepfunctions as sfn)
+                     aws_apigatewayv2_integrations as integrations, aws_cloudfront as cloudfront,
+                     aws_cloudfront_origins as origins, aws_cognito as cognito, aws_dynamodb as ddb,
+                     aws_iam as iam, aws_lambda as lambda_, aws_s3 as s3, aws_s3_deployment as s3deploy,
+                     aws_scheduler as scheduler, aws_scheduler_targets as targets,
+                     aws_secretsmanager as secretsmanager, aws_stepfunctions as sfn)
 from constructs import Construct
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -18,20 +19,33 @@ RUNTIME = lambda_.Runtime.PYTHON_3_12
 
 @jsii.implements(ILocalBundling)
 class PipBundle:
-    """Bundle core/ + lambdas/ + Linux wheels without Docker (pip --platform)."""
+    """Bundle our packages + Linux wheels without Docker (pip --platform)."""
+
+    def __init__(self, requirements: str, packages: list[str]):
+        self.requirements, self.packages = requirements, packages
 
     def try_bundle(self, output_dir: str, *args, **kwargs) -> bool:
-        subprocess.run([sys.executable, "-m", "pip", "install", "-q", "-r", str(ROOT / "lambdas/requirements.txt"),
+        subprocess.run([sys.executable, "-m", "pip", "install", "-q", "-r", str(ROOT / self.requirements),
                         "-t", output_dir, "--platform", "manylinux2014_x86_64", "--only-binary=:all:",
                         "--python-version", "3.12", "--implementation", "cp"], check=True)
-        for pkg in ("core", "lambdas"):
+        for pkg in self.packages:
             shutil.copytree(ROOT / pkg, Path(output_dir) / pkg, dirs_exist_ok=True,
                             ignore=shutil.ignore_patterns("__pycache__", "requirements.txt"))
         return True
 
 
+def python_code(requirements: str, packages: list[str]) -> lambda_.Code:
+    copy = " ".join(packages)
+    return lambda_.Code.from_asset(str(ROOT), bundling=BundlingOptions(
+        image=DockerImage.from_registry("public.ecr.aws/sam/build-python3.12"),
+        local=PipBundle(requirements, packages),
+        command=["bash", "-c", f"pip install -r {requirements} -t /asset-output && cp -r {copy} /asset-output"]),
+        exclude=[".venv", ".git", "cdk.out", "web", "node_modules", ".devdata", "**/__pycache__"])
+
+
 class RoutineGuardianStack(Stack):
-    def __init__(self, scope: Construct, id: str, *, ses_from: str, sms_enabled: bool, **kw) -> None:
+    def __init__(self, scope: Construct, id: str, *, ses_from: str, sms_enabled: bool, bedrock_model_id: str,
+                 **kw) -> None:
         super().__init__(scope, id, **kw)
 
         table = ddb.TableV2(self, "Table", partition_key=ddb.Attribute(name="pk", type=ddb.AttributeType.STRING),
@@ -41,14 +55,11 @@ class RoutineGuardianStack(Stack):
             self, "RingSecret",
             description='Ring app credentials as JSON: {"client_id": "...", "client_secret": "...", "hmac_key": "..."}')
 
-        code = lambda_.Code.from_asset(str(ROOT), bundling=BundlingOptions(
-            image=DockerImage.from_registry("public.ecr.aws/sam/build-python3.12"),
-            local=PipBundle(),
-            command=["bash", "-c", "pip install -r lambdas/requirements.txt -t /asset-output "
-                                   "&& cp -r core lambdas /asset-output"]),
-            exclude=[".venv", ".git", "cdk.out", "web", "node_modules", ".devdata", "**/__pycache__"])
+        code = python_code("lambdas/requirements.txt", ["core", "lambdas"])
+        # Strands and its dependencies are big, so only the agent function carries them.
+        agent_code = python_code("agent/requirements.txt", ["core", "lambdas", "agent"])
 
-        def fn(name: str, timeout: int = 30, memory: int = 256) -> lambda_.Function:
+        def fn(name: str, timeout: int = 30, memory: int = 256, code: lambda_.Code = code) -> lambda_.Function:
             f = lambda_.Function(self, name.title().replace("_", "") + "Fn", runtime=RUNTIME, code=code,
                                  handler=f"lambdas.{name}.handler.handler", timeout=Duration.seconds(timeout),
                                  memory_size=memory, environment={"TABLE_NAME": table.table_name,
@@ -63,6 +74,13 @@ class RoutineGuardianStack(Stack):
         nightly = fn("nightly_baseline", timeout=300, memory=512)
         backfill = fn("backfill", timeout=900, memory=512)
         escalation = fn("escalation")
+        digest = fn("daily_digest", timeout=300, memory=512)
+        agent = fn("agent_api", timeout=29, memory=1024, code=agent_code)  # API Gateway caps requests at 30 s
+        for f in (digest, agent):
+            f.add_environment("BEDROCK_MODEL_ID", bedrock_model_id)
+            f.add_to_role_policy(iam.PolicyStatement(actions=["bedrock-mantle:CreateInference"], resources=["*"]))
+        digest.add_environment("SES_FROM", ses_from)
+        digest.add_to_role_policy(iam.PolicyStatement(actions=["ses:SendEmail"], resources=["*"]))
 
         machine = sfn.StateMachine(
             self, "EscalationFlow",
@@ -86,10 +104,11 @@ class RoutineGuardianStack(Stack):
         pool = cognito.UserPool(self, "Users", self_sign_up_enabled=True,
                                 sign_in_aliases=cognito.SignInAliases(email=True),
                                 auto_verify=cognito.AutoVerifiedAttrs(email=True))
-        web_client = pool.add_client("Web", auth_flows=cognito.AuthFlow(user_srp=True), generate_secret=False)
+        web_client = pool.add_client("Web", auth_flows=cognito.AuthFlow(user_srp=True, user_password=True),
+                                     generate_secret=False)
         api = apigw.HttpApi(self, "Api", cors_preflight=apigw.CorsPreflightOptions(
             allow_origins=["*"], allow_headers=["authorization", "content-type"],
-            allow_methods=[apigw.CorsHttpMethod.GET, apigw.CorsHttpMethod.PUT]))
+            allow_methods=[apigw.CorsHttpMethod.GET, apigw.CorsHttpMethod.PUT, apigw.CorsHttpMethod.POST]))
         jwt = authorizers.HttpUserPoolAuthorizer("Cognito", pool, user_pool_clients=[web_client])
 
         def route(path: str, methods: list[apigw.HttpMethod], f: lambda_.Function, auth=None) -> None:
@@ -106,6 +125,7 @@ class RoutineGuardianStack(Stack):
         route("/api/homes/{home_id}/events", [GET], api_fn, jwt)
         route("/api/homes/{home_id}/alerts", [GET], api_fn, jwt)
         route("/api/homes/{home_id}/settings", [PUT], api_fn, jwt)
+        route("/api/homes/{home_id}/ask", [POST], agent, jwt)
 
         escalation.add_environment("ACK_BASE_URL", api.api_endpoint)
         escalation.add_environment("SES_FROM", ses_from)
@@ -117,9 +137,28 @@ class RoutineGuardianStack(Stack):
                            target=targets.LambdaInvoke(check))
         scheduler.Schedule(self, "NightlyBaseline", schedule=scheduler.ScheduleExpression.cron(hour="8", minute="0"),
                            target=targets.LambdaInvoke(nightly))
+        # ponytail: one UTC time for every home; schedule per time zone if homes span many.
+        scheduler.Schedule(self, "DailyDigest", schedule=scheduler.ScheduleExpression.cron(hour="12", minute="0"),
+                           target=targets.LambdaInvoke(digest))
 
-        for name, value in {"ApiUrl": api.api_endpoint, "TableName": table.table_name, "RingSecretArn": secret.secret_arn,
+        # --- dashboard (only when web/dist has been built) ---
+        outputs = {}
+        if (ROOT / "web/dist/index.html").exists():
+            site = s3.Bucket(self, "Site", block_public_access=s3.BlockPublicAccess.BLOCK_ALL, enforce_ssl=True)
+            cdn = cloudfront.Distribution(
+                self, "Cdn", default_root_object="index.html",
+                default_behavior=cloudfront.BehaviorOptions(
+                    origin=origins.S3BucketOrigin.with_origin_access_control(site),
+                    viewer_protocol_policy=cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS))
+            s3deploy.BucketDeployment(self, "Deploy", destination_bucket=site, distribution=cdn, sources=[
+                s3deploy.Source.asset(str(ROOT / "web/dist")),
+                s3deploy.Source.json_data("config.json", {"apiUrl": api.api_endpoint, "region": self.region,
+                                                          "clientId": web_client.user_pool_client_id})])
+            outputs["DashboardUrl"] = f"https://{cdn.distribution_domain_name}"
+
+        for name, value in {**outputs, "ApiUrl": api.api_endpoint, "TableName": table.table_name, "RingSecretArn": secret.secret_arn,
                             "UserPoolId": pool.user_pool_id, "UserPoolClientId": web_client.user_pool_client_id,
                             "StateMachineArn": machine.state_machine_arn, "DeviationCheckFunction": check.function_name,
-                            "NightlyBaselineFunction": nightly.function_name}.items():
+                            "NightlyBaselineFunction": nightly.function_name,
+                            "DailyDigestFunction": digest.function_name}.items():
             CfnOutput(self, name, value=value)

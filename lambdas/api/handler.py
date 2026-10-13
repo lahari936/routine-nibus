@@ -39,9 +39,11 @@ def handler(event, context):
 
     if route == "GET /api/homes/{home_id}":
         base = store.baseline(home.id)
+        digests = store.query(f"HOME#{home.id}", "DIGEST#", "DIGEST#~")
         return as_json(200, {"home": home.model_dump(mode="json"),
                              "baseline": base.model_dump(mode="json") if base else None,
-                             "learning": base.learning if base else True})
+                             "learning": base.learning if base else True,
+                             "digest": json.loads(digests[-1]["doc"]) if digests else None})
     if route == "GET /api/homes/{home_id}/events":
         end = datetime.fromisoformat(q["to"]) if "to" in q else datetime.now(timezone.utc)
         start = datetime.fromisoformat(q["from"]) if "from" in q else end - timedelta(days=1)

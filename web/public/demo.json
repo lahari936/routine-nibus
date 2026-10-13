@@ -1,0 +1,2086 @@
+{
+ "today": "2026-10-19",
+ "home": {
+  "id": "demo-home",
+  "name": "Mom's house",
+  "timezone": "America/New_York",
+  "caregivers": [
+   {
+    "name": "Caregiver 1",
+    "phone": "+15555550100",
+    "email": "cg1@example.com"
+   },
+   {
+    "name": "Caregiver 2",
+    "phone": null,
+    "email": "cg2@example.com"
+   }
+  ],
+  "quiet_hours": [
+   23,
+   5
+  ],
+  "checkin_enabled": false,
+  "snapshot_optin": false,
+  "paused": false,
+  "account_id": null,
+  "chime_device_id": null,
+  "chime_audio_ref": null,
+  "snapshot_device_id": null
+ },
+ "baseline": {
+  "home_id": "demo-home",
+  "days": 28,
+  "first_activity": {
+   "p10": 432.5799999999999,
+   "p50": 461.20833333333337,
+   "p90": 514.3033333333333,
+   "p95": 527.1241666666667
+  },
+  "hourly_rate": [
+   [
+    0.0,
+    0.0,
+    0.125,
+    0.25,
+    0.125,
+    0.0,
+    1.5,
+    3.8125,
+    3.75,
+    4.0625,
+    6.0,
+    5.375,
+    3.0625,
+    2.125,
+    2.25,
+    2.0625,
+    1.6875,
+    1.875,
+    1.875,
+    1.6875,
+    2.0,
+    1.8125,
+    0.875,
+    0.1875
+   ],
+   [
+    0.0,
+    0.25,
+    0.5,
+    0.25,
+    0.0,
+    0.125,
+    1.1875,
+    3.25,
+    4.0,
+    4.3125,
+    5.3125,
+    4.375,
+    2.3125,
+    1.3125,
+    1.5625,
+    2.0,
+    2.0625,
+    1.875,
+    1.4375,
+    2.0625,
+    2.8125,
+    1.6875,
+    0.3125,
+    0.0
+   ],
+   [
+    0.0,
+    0.125,
+    0.3125,
+    0.4375,
+    0.4375,
+    0.25,
+    1.0,
+    3.1875,
+    4.0,
+    4.375,
+    5.875,
+    4.5625,
+    2.0,
+    1.375,
+    1.625,
+    2.0625,
+    2.125,
+    2.25,
+    2.75,
+    3.0,
+    3.1875,
+    2.625,
+    0.9375,
+    0.0
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.125,
+    1.9375,
+    4.0625,
+    3.4375,
+    3.875,
+    5.5,
+    4.0,
+    2.0625,
+    2.25,
+    2.625,
+    2.3125,
+    2.375,
+    2.375,
+    1.875,
+    1.9375,
+    2.375,
+    1.6875,
+    0.4375,
+    0.0
+   ],
+   [
+    0.0,
+    0.0,
+    0.125,
+    0.25,
+    0.125,
+    0.125,
+    1.4375,
+    3.375,
+    3.4375,
+    3.25,
+    4.125,
+    3.6875,
+    2.4375,
+    1.8125,
+    1.6875,
+    1.625,
+    1.375,
+    1.1875,
+    1.0,
+    1.0625,
+    1.4375,
+    1.25,
+    0.4375,
+    0.0
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0625,
+    0.1875,
+    1.8125,
+    3.875,
+    2.8125,
+    0.875,
+    1.1875,
+    2.0,
+    1.9375,
+    2.0,
+    2.375,
+    2.375,
+    2.0,
+    1.5625,
+    1.1875,
+    1.5625,
+    1.875,
+    0.8125,
+    0.0
+   ],
+   [
+    0.0,
+    0.125,
+    0.375,
+    0.375,
+    0.125,
+    0.0,
+    0.625,
+    2.3125,
+    3.3125,
+    2.3125,
+    0.8125,
+    0.75,
+    2.6875,
+    3.9375,
+    2.9375,
+    2.0625,
+    2.0,
+    1.9375,
+    1.5,
+    1.6875,
+    2.375,
+    1.625,
+    0.375,
+    0.0
+   ]
+  ],
+  "recurring_visits": [
+   {
+    "label": "10:00 AM visit",
+    "weekdays": [
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    "window_start": 585.0,
+    "window_end": 615.0,
+    "hit_rate": 0.95
+   }
+  ],
+  "night_door": 0.0
+ },
+ "events": [
+  {
+   "event_id": "demo-home-2026-10-13-000",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-13T06:41:54.727020Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-001",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-13T06:47:20.132616Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-002",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-13T11:52:54.306038Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-003",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-13T11:56:43.286594Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-004",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-13T11:59:23.358102Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-005",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-13T12:04:27.975911Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-006",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-13T12:26:55.081606Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-007",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-13T12:28:45.844977Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-008",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-13T12:33:05.804696Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-009",
+   "home_id": "demo-home",
+   "device_id": "front_door",
+   "kind": "contact_open",
+   "ts": "2026-10-13T12:37:03.544584Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-010",
+   "home_id": "demo-home",
+   "device_id": "front_door",
+   "kind": "contact_close",
+   "ts": "2026-10-13T12:38:46.324022Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-011",
+   "home_id": "demo-home",
+   "device_id": "doorbell",
+   "kind": "motion_human",
+   "ts": "2026-10-13T13:58:39.735717Z",
+   "indoor": false
+  },
+  {
+   "event_id": "demo-home-2026-10-13-012",
+   "home_id": "demo-home",
+   "device_id": "doorbell",
+   "kind": "ding",
+   "ts": "2026-10-13T13:59:09.735717Z",
+   "indoor": false
+  },
+  {
+   "event_id": "demo-home-2026-10-13-013",
+   "home_id": "demo-home",
+   "device_id": "front_door",
+   "kind": "contact_open",
+   "ts": "2026-10-13T13:59:50.038760Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-014",
+   "home_id": "demo-home",
+   "device_id": "front_door",
+   "kind": "contact_close",
+   "ts": "2026-10-13T14:00:37.551454Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-015",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-13T14:04:09.735717Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-016",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-13T14:09:35.773771Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-017",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-13T14:17:38.115951Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-018",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-13T14:29:39.090258Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-019",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-13T14:44:16.821200Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-020",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-13T14:52:31.503612Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-021",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-13T15:03:13.015009Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-022",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-13T15:09:53.872213Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-023",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-13T15:15:21.220320Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-024",
+   "home_id": "demo-home",
+   "device_id": "front_door",
+   "kind": "contact_open",
+   "ts": "2026-10-13T15:16:22.312682Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-025",
+   "home_id": "demo-home",
+   "device_id": "front_door",
+   "kind": "contact_close",
+   "ts": "2026-10-13T15:17:56.858135Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-026",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-13T16:35:51.423931Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-027",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-13T16:37:24.064677Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-028",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-13T16:40:50.727573Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-029",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-13T17:27:09.215494Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-030",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-13T18:31:23.232808Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-031",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-13T18:35:39.154688Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-032",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-13T18:37:02.598130Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-033",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-13T19:19:45.819421Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-034",
+   "home_id": "demo-home",
+   "device_id": "doorbell",
+   "kind": "motion_other",
+   "ts": "2026-10-13T19:38:31.206972Z",
+   "indoor": false
+  },
+  {
+   "event_id": "demo-home-2026-10-13-035",
+   "home_id": "demo-home",
+   "device_id": "doorbell",
+   "kind": "motion_other",
+   "ts": "2026-10-13T20:01:26.063324Z",
+   "indoor": false
+  },
+  {
+   "event_id": "demo-home-2026-10-13-036",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-13T21:44:46.808085Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-037",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-13T21:46:17.461210Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-038",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-13T21:50:53.117214Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-039",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-13T22:18:58.126646Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-040",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-13T22:21:34.173330Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-041",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-13T22:24:24.731049Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-042",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-13T23:41:34.178390Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-043",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-14T00:31:24.633398Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-044",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-14T00:36:56.192132Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-045",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-14T00:42:39.672204Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-046",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-14T00:55:33.556796Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-047",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-14T00:57:41.806577Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-048",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-14T00:59:23.296643Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-13-049",
+   "home_id": "demo-home",
+   "device_id": "doorbell",
+   "kind": "motion_other",
+   "ts": "2026-10-14T01:55:48.489175Z",
+   "indoor": false
+  },
+  {
+   "event_id": "demo-home-2026-10-14-000",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-14T06:52:08.911087Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-001",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-14T06:53:18.517467Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-002",
+   "home_id": "demo-home",
+   "device_id": "doorbell",
+   "kind": "motion_other",
+   "ts": "2026-10-14T11:29:23.418161Z",
+   "indoor": false
+  },
+  {
+   "event_id": "demo-home-2026-10-14-003",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-14T12:04:47.948784Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-004",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-14T12:09:58.010185Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-005",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-14T12:13:31.397237Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-006",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-14T12:15:14.345877Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-007",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-14T12:21:10.896182Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-008",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-14T12:25:44.129442Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-009",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-14T12:31:11.316614Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-010",
+   "home_id": "demo-home",
+   "device_id": "front_door",
+   "kind": "contact_open",
+   "ts": "2026-10-14T12:53:41.960819Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-011",
+   "home_id": "demo-home",
+   "device_id": "front_door",
+   "kind": "contact_close",
+   "ts": "2026-10-14T12:54:17.941576Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-012",
+   "home_id": "demo-home",
+   "device_id": "doorbell",
+   "kind": "motion_other",
+   "ts": "2026-10-14T13:03:58.774351Z",
+   "indoor": false
+  },
+  {
+   "event_id": "demo-home-2026-10-14-013",
+   "home_id": "demo-home",
+   "device_id": "doorbell",
+   "kind": "motion_human",
+   "ts": "2026-10-14T13:58:16.003417Z",
+   "indoor": false
+  },
+  {
+   "event_id": "demo-home-2026-10-14-014",
+   "home_id": "demo-home",
+   "device_id": "doorbell",
+   "kind": "ding",
+   "ts": "2026-10-14T13:58:46.003417Z",
+   "indoor": false
+  },
+  {
+   "event_id": "demo-home-2026-10-14-015",
+   "home_id": "demo-home",
+   "device_id": "front_door",
+   "kind": "contact_open",
+   "ts": "2026-10-14T13:59:16.380836Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-016",
+   "home_id": "demo-home",
+   "device_id": "front_door",
+   "kind": "contact_close",
+   "ts": "2026-10-14T14:00:56.405499Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-017",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-14T14:03:46.003417Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-018",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-14T14:13:27.306092Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-019",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-14T14:23:37.374056Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-020",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-14T14:38:20.151550Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-021",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-14T14:53:04.773034Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-022",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-14T15:06:11.461907Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-023",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-14T15:18:25.122956Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-024",
+   "home_id": "demo-home",
+   "device_id": "front_door",
+   "kind": "contact_open",
+   "ts": "2026-10-14T15:22:16.317191Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-025",
+   "home_id": "demo-home",
+   "device_id": "front_door",
+   "kind": "contact_close",
+   "ts": "2026-10-14T15:23:04.615137Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-026",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-14T16:47:38.430670Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-027",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-14T16:50:08.224230Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-028",
+   "home_id": "demo-home",
+   "device_id": "doorbell",
+   "kind": "motion_other",
+   "ts": "2026-10-14T17:36:06.250609Z",
+   "indoor": false
+  },
+  {
+   "event_id": "demo-home-2026-10-14-029",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-14T18:09:26.533801Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-030",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-14T18:13:53.941579Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-031",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-14T18:15:38.016996Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-032",
+   "home_id": "demo-home",
+   "device_id": "doorbell",
+   "kind": "motion_other",
+   "ts": "2026-10-14T18:42:31.664474Z",
+   "indoor": false
+  },
+  {
+   "event_id": "demo-home-2026-10-14-033",
+   "home_id": "demo-home",
+   "device_id": "doorbell",
+   "kind": "offline",
+   "ts": "2026-10-14T19:12:30.627044Z",
+   "indoor": false
+  },
+  {
+   "event_id": "demo-home-2026-10-14-034",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-14T19:47:09.533624Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-035",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-14T19:50:58.978124Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-036",
+   "home_id": "demo-home",
+   "device_id": "doorbell",
+   "kind": "online",
+   "ts": "2026-10-14T19:51:10.759177Z",
+   "indoor": false
+  },
+  {
+   "event_id": "demo-home-2026-10-14-037",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-14T20:09:01.504964Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-038",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-14T22:09:22.620197Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-039",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-14T22:13:55.349602Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-040",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-14T22:16:03.446665Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-041",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-14T23:34:50.171638Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-042",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-14T23:40:05.632706Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-043",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-14T23:44:29.480710Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-044",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-15T00:25:09.391767Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-045",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-15T00:29:17.370179Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-046",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-15T00:35:05.483956Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-047",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-15T01:07:24.633380Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-048",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-15T01:11:30.268860Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-049",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-15T01:14:31.575809Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-14-050",
+   "home_id": "demo-home",
+   "device_id": "doorbell",
+   "kind": "motion_other",
+   "ts": "2026-10-15T01:29:14.534180Z",
+   "indoor": false
+  },
+  {
+   "event_id": "demo-home-2026-10-15-000",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-15T11:12:39.319055Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-001",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-15T11:14:39.798839Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-002",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-15T11:16:14.212130Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-003",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-15T11:20:52.675348Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-004",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-15T11:36:49.792652Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-005",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-15T11:42:02.234859Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-006",
+   "home_id": "demo-home",
+   "device_id": "front_door",
+   "kind": "contact_open",
+   "ts": "2026-10-15T11:44:02.742757Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-007",
+   "home_id": "demo-home",
+   "device_id": "front_door",
+   "kind": "contact_close",
+   "ts": "2026-10-15T11:44:45.151352Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-008",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-15T11:47:03.467804Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-009",
+   "home_id": "demo-home",
+   "device_id": "doorbell",
+   "kind": "motion_human",
+   "ts": "2026-10-15T14:00:30.937983Z",
+   "indoor": false
+  },
+  {
+   "event_id": "demo-home-2026-10-15-010",
+   "home_id": "demo-home",
+   "device_id": "doorbell",
+   "kind": "ding",
+   "ts": "2026-10-15T14:01:00.937983Z",
+   "indoor": false
+  },
+  {
+   "event_id": "demo-home-2026-10-15-011",
+   "home_id": "demo-home",
+   "device_id": "front_door",
+   "kind": "contact_open",
+   "ts": "2026-10-15T14:02:17.124265Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-012",
+   "home_id": "demo-home",
+   "device_id": "front_door",
+   "kind": "contact_close",
+   "ts": "2026-10-15T14:03:28.644562Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-013",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-15T14:06:00.937983Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-014",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-15T14:11:27.040248Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-015",
+   "home_id": "demo-home",
+   "device_id": "doorbell",
+   "kind": "motion_other",
+   "ts": "2026-10-15T14:11:35.094834Z",
+   "indoor": false
+  },
+  {
+   "event_id": "demo-home-2026-10-15-016",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-15T14:17:26.827421Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-017",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-15T14:30:28.640032Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-018",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-15T14:35:49.127907Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-019",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-15T14:43:21.889341Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-020",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-15T14:55:18.246020Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-021",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-15T15:08:41.143473Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-022",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-15T15:14:49.289176Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-023",
+   "home_id": "demo-home",
+   "device_id": "front_door",
+   "kind": "contact_open",
+   "ts": "2026-10-15T15:18:09.289746Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-024",
+   "home_id": "demo-home",
+   "device_id": "front_door",
+   "kind": "contact_close",
+   "ts": "2026-10-15T15:18:34.812738Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-025",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-15T16:07:30.734441Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-026",
+   "home_id": "demo-home",
+   "device_id": "doorbell",
+   "kind": "offline",
+   "ts": "2026-10-15T16:08:49.017991Z",
+   "indoor": false
+  },
+  {
+   "event_id": "demo-home-2026-10-15-027",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-15T16:12:41.596462Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-028",
+   "home_id": "demo-home",
+   "device_id": "doorbell",
+   "kind": "online",
+   "ts": "2026-10-15T16:41:56.660972Z",
+   "indoor": false
+  },
+  {
+   "event_id": "demo-home-2026-10-15-029",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-15T17:49:51.804638Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-030",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-15T17:50:55.944846Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-031",
+   "home_id": "demo-home",
+   "device_id": "doorbell",
+   "kind": "motion_other",
+   "ts": "2026-10-15T18:00:00.099560Z",
+   "indoor": false
+  },
+  {
+   "event_id": "demo-home-2026-10-15-032",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-15T18:25:05.324598Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-033",
+   "home_id": "demo-home",
+   "device_id": "front_door",
+   "kind": "contact_open",
+   "ts": "2026-10-15T18:49:01.452610Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-034",
+   "home_id": "demo-home",
+   "device_id": "front_door",
+   "kind": "contact_close",
+   "ts": "2026-10-15T18:50:21.536408Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-035",
+   "home_id": "demo-home",
+   "device_id": "front_door",
+   "kind": "contact_open",
+   "ts": "2026-10-15T19:54:17.191865Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-036",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-15T19:55:17.191865Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-037",
+   "home_id": "demo-home",
+   "device_id": "front_door",
+   "kind": "contact_close",
+   "ts": "2026-10-15T19:55:39.541067Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-038",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-15T19:59:55.280796Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-039",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-15T20:11:27.627037Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-040",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-15T20:14:15.906776Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-041",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-15T20:17:54.384614Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-042",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-15T21:31:13.857380Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-043",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-15T22:16:34.107587Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-044",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-15T22:22:15.331300Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-045",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-15T23:24:10.313270Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-046",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-16T00:58:48.425083Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-047",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-16T01:02:26.869632Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-15-048",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-16T01:08:13.957798Z",
+   "indoor": true
+  },
+  {
+   "event_id": "home-1-2026-10-19-000-2026-10-16",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-16T11:28:00Z",
+   "indoor": true
+  },
+  {
+   "event_id": "home-1-2026-10-19-001-2026-10-16",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-16T11:50:00Z",
+   "indoor": true
+  },
+  {
+   "event_id": "home-1-2026-10-19-002-2026-10-16",
+   "home_id": "demo-home",
+   "device_id": "front_door",
+   "kind": "contact_open",
+   "ts": "2026-10-16T12:10:00Z",
+   "indoor": true
+  },
+  {
+   "event_id": "home-1-2026-10-19-003-2026-10-16",
+   "home_id": "demo-home",
+   "device_id": "front_door",
+   "kind": "contact_close",
+   "ts": "2026-10-16T12:11:00Z",
+   "indoor": true
+  },
+  {
+   "event_id": "home-1-2026-10-19-004-2026-10-16",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-16T13:30:00Z",
+   "indoor": true
+  },
+  {
+   "event_id": "home-1-2026-10-19-005-2026-10-16",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-16T15:00:00Z",
+   "indoor": true
+  },
+  {
+   "event_id": "home-1-2026-10-19-006-2026-10-16",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-16T16:30:00Z",
+   "indoor": true
+  },
+  {
+   "event_id": "home-1-2026-10-19-007-2026-10-16",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-16T20:10:00Z",
+   "indoor": true
+  },
+  {
+   "event_id": "home-1-2026-10-19-008-2026-10-16",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-16T22:20:00Z",
+   "indoor": true
+  },
+  {
+   "event_id": "home-1-2026-10-19-009-2026-10-16",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-17T01:10:00Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-17-000",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-17T12:13:00.843918Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-17-001",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-17T12:14:17.649183Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-17-002",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-17T12:18:21.839459Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-17-003",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-17T12:22:59.079911Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-17-004",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-17T12:30:21.016977Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-17-005",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-17T12:32:07.874427Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-17-006",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-17T12:33:50.671840Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-17-007",
+   "home_id": "demo-home",
+   "device_id": "front_door",
+   "kind": "contact_open",
+   "ts": "2026-10-17T12:58:21.869843Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-17-008",
+   "home_id": "demo-home",
+   "device_id": "front_door",
+   "kind": "contact_close",
+   "ts": "2026-10-17T12:59:23.039451Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-17-009",
+   "home_id": "demo-home",
+   "device_id": "doorbell",
+   "kind": "motion_other",
+   "ts": "2026-10-17T15:36:47.701254Z",
+   "indoor": false
+  },
+  {
+   "event_id": "demo-home-2026-10-17-010",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-17T16:29:25.467052Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-17-011",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-17T16:33:42.674858Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-17-012",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-17T16:37:43.145599Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-17-013",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-17T17:12:53.492749Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-17-014",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-17T17:17:42.485309Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-17-015",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-17T17:22:35.282816Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-17-016",
+   "home_id": "demo-home",
+   "device_id": "doorbell",
+   "kind": "motion_other",
+   "ts": "2026-10-17T18:27:21.485322Z",
+   "indoor": false
+  },
+  {
+   "event_id": "demo-home-2026-10-17-017",
+   "home_id": "demo-home",
+   "device_id": "front_door",
+   "kind": "contact_open",
+   "ts": "2026-10-17T18:51:02.080692Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-17-018",
+   "home_id": "demo-home",
+   "device_id": "front_door",
+   "kind": "contact_close",
+   "ts": "2026-10-17T18:51:57.372848Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-17-019",
+   "home_id": "demo-home",
+   "device_id": "front_door",
+   "kind": "contact_open",
+   "ts": "2026-10-17T20:24:52.982187Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-17-020",
+   "home_id": "demo-home",
+   "device_id": "front_door",
+   "kind": "contact_close",
+   "ts": "2026-10-17T20:25:26.212354Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-17-021",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-17T20:25:52.982187Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-17-022",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-17T20:27:46.210953Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-17-023",
+   "home_id": "demo-home",
+   "device_id": "doorbell",
+   "kind": "motion_other",
+   "ts": "2026-10-17T21:21:14.848041Z",
+   "indoor": false
+  },
+  {
+   "event_id": "demo-home-2026-10-17-024",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-17T21:38:42.491660Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-17-025",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-17T21:44:39.349208Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-17-026",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-17T23:01:23.853736Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-17-027",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-18T00:27:45.743435Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-17-028",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-18T01:10:11.116029Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-17-029",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-18T01:15:29.066476Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-17-030",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-18T01:17:33.007074Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-18-000",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-18T07:32:24.236524Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-18-001",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-18T07:33:28.867470Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-18-002",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-18T12:42:52.015240Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-18-003",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-18T12:48:26.112109Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-18-004",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-18T12:52:48.375772Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-18-005",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-18T12:55:33.581044Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-18-006",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-18T13:07:16.003144Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-18-007",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-18T13:12:48.109335Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-18-008",
+   "home_id": "demo-home",
+   "device_id": "doorbell",
+   "kind": "motion_other",
+   "ts": "2026-10-18T13:13:19.371153Z",
+   "indoor": false
+  },
+  {
+   "event_id": "demo-home-2026-10-18-009",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-18T13:15:40.779364Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-18-010",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-18T16:01:02.295629Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-18-011",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-18T16:03:14.844381Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-18-012",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-18T16:06:01.135667Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-18-013",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-18T17:13:56.045451Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-18-014",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-18T17:19:50.448891Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-18-015",
+   "home_id": "demo-home",
+   "device_id": "doorbell",
+   "kind": "motion_human",
+   "ts": "2026-10-18T17:22:06.402232Z",
+   "indoor": false
+  },
+  {
+   "event_id": "demo-home-2026-10-18-016",
+   "home_id": "demo-home",
+   "device_id": "doorbell",
+   "kind": "ding",
+   "ts": "2026-10-18T17:22:36.402232Z",
+   "indoor": false
+  },
+  {
+   "event_id": "demo-home-2026-10-18-017",
+   "home_id": "demo-home",
+   "device_id": "front_door",
+   "kind": "contact_open",
+   "ts": "2026-10-18T17:25:02.365027Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-18-018",
+   "home_id": "demo-home",
+   "device_id": "front_door",
+   "kind": "contact_close",
+   "ts": "2026-10-18T17:26:50.324062Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-18-019",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-18T18:46:41.662152Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-18-020",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-18T18:51:48.511085Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-18-021",
+   "home_id": "demo-home",
+   "device_id": "doorbell",
+   "kind": "motion_other",
+   "ts": "2026-10-18T19:21:51.780124Z",
+   "indoor": false
+  },
+  {
+   "event_id": "demo-home-2026-10-18-022",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-18T19:24:16.654225Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-18-023",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-18T20:47:50.485726Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-18-024",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-18T21:44:10.706665Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-18-025",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-18T21:49:04.651126Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-18-026",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-18T22:43:11.900762Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-18-027",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-18T22:48:13.406897Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-18-028",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-19T00:15:08.125590Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-18-029",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-19T00:16:37.390108Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-18-030",
+   "home_id": "demo-home",
+   "device_id": "kitchen_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-19T00:18:28.012725Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-18-031",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-19T00:56:52.003298Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-18-032",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-19T00:57:56.610050Z",
+   "indoor": true
+  },
+  {
+   "event_id": "demo-home-2026-10-18-033",
+   "home_id": "demo-home",
+   "device_id": "hall_motion",
+   "kind": "motion_human",
+   "ts": "2026-10-19T00:59:37.059578Z",
+   "indoor": true
+  }
+ ],
+ "alerts": [
+  {
+   "home_id": "demo-home",
+   "ts": "2026-10-16T15:00:00Z",
+   "rule": "missed_visit",
+   "severity": "high",
+   "reason": "The usual 10:00 AM visit didn't happen.",
+   "status": "acked",
+   "escalation_exec_arn": null,
+   "acked_by": "Caregiver 1"
+  },
+  {
+   "home_id": "demo-home",
+   "ts": "2026-10-19T13:30:00Z",
+   "rule": "missed_morning",
+   "severity": "high",
+   "reason": "No activity yet today. Usually first active by 8:34 AM (9 of 10 days).",
+   "status": "open",
+   "escalation_exec_arn": null,
+   "acked_by": null
+  }
+ ],
+ "digest": {
+  "date": "2026-10-18",
+  "text": "Sunday 2026-10-18: first activity 8:43 AM (usually 7:41 AM). No alerts.",
+  "facts": {
+   "date": "2026-10-18",
+   "weekday": "Sunday",
+   "first_activity": "8:43 AM",
+   "last_activity": "9:00 PM",
+   "events_recorded": 34,
+   "doorbell_rings": [
+    "1:23 PM"
+   ],
+   "door_opens_in_quiet_hours": [],
+   "device_offline_events": 0,
+   "alerts": [],
+   "learning": false,
+   "usual_first_activity": "7:41 AM",
+   "usual_events_recorded": 34,
+   "usual_visits": []
+  }
+ }
+}

@@ -24,3 +24,9 @@ Ring API and SDK friction, logged as it happens. Format: date, area, what happen
 - 2026-10-13, chime check-in: the audio playback body isn't in the docs we read. We send `{"audio_ref": ...}` to `/v1/devices/{id}/media/audio/playback`, and it needs Ring's chime-access approval. If the call fails, escalation skips the check-in and goes straight to notifying caregivers.
 - 2026-10-13, SES and SNS: new accounts start in the SES sandbox, which only sends to verified addresses, and SMS needs a sandbox-verified number (and origination setup in some countries). For the demo, verify the caregiver email and phone first.
 - 2026-10-13, Lambda bundling: pydantic-core is a compiled wheel. The CDK stack installs Linux wheels with `pip --platform manylinux2014_x86_64`, so `cdk synth` doesn't need Docker.
+
+## Phase 4 (dashboard, digest, agent)
+
+- 2026-10-13, Bedrock: Claude Opus 5.5 is served on the Messages-API Bedrock endpoint (`bedrock-mantle`, model `anthropic.claude-opus-5-5`, IAM action `bedrock-mantle:CreateInference`), not as an ARN-versioned Converse model. The agent uses Strands' Anthropic provider with the Anthropic SDK's `AsyncAnthropicBedrockMantle` client in place of the default client.
+- 2026-10-13, Bedrock: server-side refusal fallbacks aren't available on Bedrock. The digest falls back to a plain facts template; the agent surfaces the error.
+- 2026-10-13, API Gateway: HTTP APIs cap integrations at 30 seconds, so the dashboard's Ask box runs the agent at low effort. Longer questions would need an async job.
