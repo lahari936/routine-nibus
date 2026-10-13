@@ -6,7 +6,7 @@ from functools import cache
 
 import boto3
 
-from core.ring_client import API_BASE, RingClient, Tokens
+from ring_routine_baseline.ring_client import API_BASE, RingClient, Tokens
 from lambdas.common.store import DynamoStore
 
 

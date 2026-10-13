@@ -11,7 +11,7 @@ from datetime import datetime, timedelta, timezone
 
 import boto3
 
-from core.models import Home
+from ring_routine_baseline.models import Home
 from lambdas.common.ring import client_for_account
 from lambdas.common.store import DAY, DynamoStore
 

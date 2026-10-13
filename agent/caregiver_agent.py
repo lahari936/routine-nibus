@@ -13,7 +13,7 @@ import anthropic
 from strands import Agent, tool
 from strands.models.anthropic import AnthropicModel
 
-from core.facts import baseline_facts, day_summary
+from ring_routine_baseline.facts import baseline_facts, day_summary
 
 MODEL_ID = os.environ.get("BEDROCK_MODEL_ID", "anthropic.claude-opus-5-5")
 MAX_RANGE_DAYS = 31

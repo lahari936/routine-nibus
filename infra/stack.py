@@ -25,9 +25,17 @@ class PipBundle:
         self.requirements, self.packages = requirements, packages
 
     def try_bundle(self, output_dir: str, *args, **kwargs) -> bool:
-        subprocess.run([sys.executable, "-m", "pip", "install", "-q", "-r", str(ROOT / self.requirements),
-                        "-t", output_dir, "--platform", "manylinux2014_x86_64", "--only-binary=:all:",
-                        "--python-version", "3.12", "--implementation", "cp"], check=True)
+        reqs = str(ROOT / self.requirements)
+        if shutil.which("uv"):
+            # uv evaluates environment markers for the target (Linux); pip uses the host's, so on Windows
+            # it demands Windows-only deps such as pywin32 and never resolves.
+            cmd = ["uv", "pip", "install", "-q", "-r", reqs, "--target", output_dir, "--only-binary", ":all:",
+                   "--python-platform", "x86_64-manylinux2014", "--python-version", "3.12"]
+        else:
+            cmd = [sys.executable, "-m", "pip", "install", "-q", "-r", reqs, "-t", output_dir,
+                   "--platform", "manylinux2014_x86_64", "--only-binary=:all:",
+                   "--python-version", "3.12", "--implementation", "cp"]
+        subprocess.run(cmd, check=True)
         for pkg in self.packages:
             shutil.copytree(ROOT / pkg, Path(output_dir) / pkg, dirs_exist_ok=True,
                             ignore=shutil.ignore_patterns("__pycache__", "requirements.txt"))
@@ -55,9 +63,9 @@ class RoutineGuardianStack(Stack):
             self, "RingSecret",
             description='Ring app credentials as JSON: {"client_id": "...", "client_secret": "...", "hmac_key": "..."}')
 
-        code = python_code("lambdas/requirements.txt", ["core", "lambdas"])
+        code = python_code("lambdas/requirements.txt", ["ring_routine_baseline", "lambdas"])
         # Strands and its dependencies are big, so only the agent function carries them.
-        agent_code = python_code("agent/requirements.txt", ["core", "lambdas", "agent"])
+        agent_code = python_code("agent/requirements.txt", ["ring_routine_baseline", "lambdas", "agent"])
 
         def fn(name: str, timeout: int = 30, memory: int = 256, code: lambda_.Code = code) -> lambda_.Function:
             f = lambda_.Function(self, name.title().replace("_", "") + "Fn", runtime=RUNTIME, code=code,

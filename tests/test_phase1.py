@@ -2,8 +2,8 @@ from datetime import date, timedelta
 
 import pytest
 
-from core.baseline import compute_baseline
-from core.rules import evaluate
+from ring_routine_baseline.baseline import compute_baseline
+from ring_routine_baseline.rules import evaluate
 from simulator.evaluate import SCENARIOS, false_alerts, load_scenario, run_scenario
 from simulator.generate_history import HOME, generate_history
 

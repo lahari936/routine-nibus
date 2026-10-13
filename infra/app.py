@@ -9,6 +9,7 @@ import aws_cdk as cdk  # noqa: E402
 from stack import RoutineGuardianStack  # noqa: E402
 
 app = cdk.App()
+cdk.Tags.of(app).add("project", "routine-guardian")  # cost allocation: filter Cost Explorer on this tag
 RoutineGuardianStack(
     app, "RoutineGuardian",
     ses_from=app.node.try_get_context("ses_from") or "alerts@example.com",

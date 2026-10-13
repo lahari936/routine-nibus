@@ -5,7 +5,7 @@ import json
 from datetime import datetime, timezone
 from typing import Any, Protocol
 
-from core.models import Event, EventKind
+from ring_routine_baseline.models import Event, EventKind
 
 # Ring event type -> our kind. Motion is split by attributes.sub_type below.
 KINDS: dict[str, EventKind] = {

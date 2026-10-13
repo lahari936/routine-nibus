@@ -111,7 +111,7 @@ def test_ding_during_checkin_resolves_alert(aws):
     aws("tools.aws_demo").seed(store, "cg1@example.com", None, None, DAY)
     wh = aws("lambdas.webhook_handler.handler")
     wh.sfn = Recorder()
-    from core.models import Alert
+    from ring_routine_baseline.models import Alert
     sk = "ALERT#2026-10-19#missed_morning"
     store.add_alert(sk, Alert(home_id="demo-home", ts=datetime.combine(DAY, time(9, 45), tzinfo=HOME.tz),
                               rule="missed_morning", severity="high", reason="r"))

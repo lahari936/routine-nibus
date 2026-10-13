@@ -23,7 +23,7 @@ Ring API and SDK friction, logged as it happens. Format: date, area, what happen
 
 - 2026-10-13, chime check-in: the audio playback body isn't in the docs we read. We send `{"audio_ref": ...}` to `/v1/devices/{id}/media/audio/playback`, and it needs Ring's chime-access approval. If the call fails, escalation skips the check-in and goes straight to notifying caregivers.
 - 2026-10-13, SES and SNS: new accounts start in the SES sandbox, which only sends to verified addresses, and SMS needs a sandbox-verified number (and origination setup in some countries). For the demo, verify the caregiver email and phone first.
-- 2026-10-13, Lambda bundling: pydantic-core is a compiled wheel. The CDK stack installs Linux wheels with `pip --platform manylinux2014_x86_64`, so `cdk synth` doesn't need Docker.
+- 2026-10-13, Lambda bundling: pydantic-core is a compiled wheel. The CDK stack installs Linux wheels without Docker. pip's `--platform` still evaluates environment markers for the build machine, so on Windows it demanded `pywin32` (via Strands -> mcp) and never resolved. The bundler uses `uv pip install --python-platform x86_64-manylinux2014` when uv is available.
 
 ## Phase 4 (dashboard, digest, agent)
 

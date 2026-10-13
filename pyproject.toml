@@ -1,14 +1,33 @@
+# The installable package is the reusable core, ring_routine_baseline. The rest of the repo (Lambdas,
+# CDK, simulator, dashboard) is the Routine Guardian app built on it and is not packaged.
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
 [project]
-name = "routine-guardian"
+name = "ring-routine-baseline"
 version = "0.1.0"
-description = "Learns an elderly person's home rhythm from Ring events and alerts family on meaningful deviations."
+description = "Learn a household's daily rhythm from Ring events and flag meaningful, explainable deviations."
+readme = "ring_routine_baseline/README.md"
 license = "MIT"
+license-files = ["LICENSE"]
 requires-python = ">=3.12"
-dependencies = ["pydantic>=2", "pyyaml", "tzdata"]
+dependencies = ["pydantic>=2", "tzdata"]
+keywords = ["ring", "amazon", "smart-home", "aging-in-place", "caregiving", "anomaly-detection"]
+classifiers = ["Programming Language :: Python :: 3", "Topic :: Home Automation", "Typing :: Typed"]
+
+[project.urls]
+Source = "https://github.com/lahari936/routine-nibus"
 
 [project.optional-dependencies]
-dev = ["pytest", "boto3", "moto[dynamodb,stepfunctions,ses,sns,secretsmanager]"]
+dev = ["pytest", "pyyaml", "boto3", "moto[dynamodb,stepfunctions,ses,sns,secretsmanager]"]
 infra = ["aws-cdk-lib>=2.180", "constructs"]
+
+[tool.setuptools]
+packages = ["ring_routine_baseline"]
+
+[tool.setuptools.package-data]
+ring_routine_baseline = ["py.typed"]
 
 [tool.pytest.ini_options]
 pythonpath = ["."]

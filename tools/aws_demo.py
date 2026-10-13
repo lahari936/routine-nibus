@@ -16,8 +16,8 @@ from datetime import date, datetime, timedelta
 
 import boto3
 
-from core.baseline import compute_baseline
-from core.models import Caregiver
+from ring_routine_baseline.baseline import compute_baseline
+from ring_routine_baseline.models import Caregiver
 from simulator.generate_history import HOME, generate_history
 
 STACK = "RoutineGuardian"

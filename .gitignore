@@ -7,3 +7,5 @@ cdk.out/
 node_modules/
 .devdata/
 web/dist/
+dist/
+build/

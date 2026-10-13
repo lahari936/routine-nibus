@@ -10,9 +10,9 @@ import json
 from datetime import date, datetime, time, timedelta
 from pathlib import Path
 
-from core.baseline import compute_baseline
-from core.facts import day_summary, plain_digest
-from core.models import Alert, Caregiver
+from ring_routine_baseline.baseline import compute_baseline
+from ring_routine_baseline.facts import day_summary, plain_digest
+from ring_routine_baseline.models import Alert, Caregiver
 from simulator.evaluate import SCENARIOS, load_scenario, replay_day
 from simulator.generate_history import HOME, generate_history
 

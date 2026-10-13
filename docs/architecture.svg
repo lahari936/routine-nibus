@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title>Routine Guardian architecture</title>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#5c6370"/>
+    </marker>
+    <style>
+      .box { stroke-width: 1.5; rx: 10; }
+      .ring { fill: #e8eef7; stroke: #3b5b8c; }
+      .edge { fill: #f1f3f5; stroke: #6b7280; }
+      .fn { fill: #fdf0e3; stroke: #c26a1b; }
+      .data { fill: #e3f3e8; stroke: #2e7d4f; }
+      .ai { fill: #efe8fb; stroke: #6d4bb8; }
+      .people { fill: #dff1f2; stroke: #1f6f78; }
+      .t { font-size: 14px; font-weight: 600; fill: #1f2328; }
+      .s { font-size: 11.5px; fill: #4b5260; }
+      .l { stroke: #5c6370; stroke-width: 1.4; fill: none; marker-end: url(#a); }
+      .lbl { font-size: 11px; fill: #5c6370; }
+      .h { font-size: 12px; font-weight: 700; fill: #8a8f98; letter-spacing: .08em; }
+    </style>
+  </defs>
+  <rect width="1200" height="600" fill="#ffffff"/>
+
+  <text x="20" y="22" class="h">RING</text>
+  <text x="250" y="22" class="h">ENTRY</text>
+  <text x="480" y="22" class="h">AWS LAMBDA</text>
+  <text x="740" y="22" class="h">STATE AND WORKFLOW</text>
+  <text x="990" y="22" class="h">FAMILY</text>
+
+  <!-- Ring -->
+  <rect x="20" y="60" width="190" height="64" class="box ring"/>
+  <text x="34" y="86" class="t">Ring devices / sandbox</text>
+  <text x="34" y="106" class="s">motion · ding · contact · online</text>
+  <rect x="20" y="170" width="190" height="64" class="box ring"/>
+  <text x="34" y="196" class="t">Ring API</text>
+  <text x="34" y="216" class="s">OAuth · devices · history · chime</text>
+  <rect x="20" y="300" width="190" height="64" class="box edge"/>
+  <text x="34" y="326" class="t">Secrets Manager</text>
+  <text x="34" y="346" class="s">Ring credentials, read by Lambdas</text>
+
+  <!-- Entry -->
+  <rect x="250" y="60" width="190" height="64" class="box edge"/>
+  <text x="264" y="86" class="t">API Gateway (HTTP)</text>
+  <text x="264" y="106" class="s">/ring/* · /ack · /api/*</text>
+  <rect x="250" y="250" width="190" height="64" class="box edge"/>
+  <text x="264" y="276" class="t">EventBridge Scheduler</text>
+  <text x="264" y="296" class="s">every 15 min · nightly · daily</text>
+  <rect x="250" y="470" width="190" height="64" class="box edge"/>
+  <text x="264" y="496" class="t">Cognito</text>
+  <text x="264" y="516" class="s">caregiver sign-in (JWT)</text>
+
+  <!-- Lambdas -->
+  <rect x="480" y="40" width="210" height="56" class="box fn"/>
+  <text x="494" y="64" class="t">webhook_handler</text>
+  <text x="494" y="83" class="s">HMAC verify (raw body) · dedupe</text>
+  <rect x="480" y="108" width="210" height="56" class="box fn"/>
+  <text x="494" y="132" class="t">link + backfill</text>
+  <text x="494" y="151" class="s">account linking · 28 days of history</text>
+  <rect x="480" y="200" width="210" height="56" class="box fn"/>
+  <text x="494" y="224" class="t">deviation_check</text>
+  <text x="494" y="243" class="s">5 explainable rules, every 15 min</text>
+  <rect x="480" y="268" width="210" height="56" class="box fn"/>
+  <text x="494" y="292" class="t">nightly_baseline</text>
+  <text x="494" y="311" class="s">per-home 28-day baseline</text>
+  <rect x="480" y="360" width="210" height="56" class="box fn"/>
+  <text x="494" y="384" class="t">daily_digest</text>
+  <text x="494" y="403" class="s">facts → Claude → SES email</text>
+  <rect x="480" y="428" width="210" height="56" class="box fn"/>
+  <text x="494" y="452" class="t">agent_api (Strands)</text>
+  <text x="494" y="471" class="s">day summary · alerts · baseline tools</text>
+  <rect x="480" y="496" width="210" height="56" class="box fn"/>
+  <text x="494" y="520" class="t">api</text>
+  <text x="494" y="539" class="s">timeline · alerts · settings</text>
+
+  <!-- State -->
+  <rect x="740" y="80" width="200" height="84" class="box data"/>
+  <text x="754" y="108" class="t">DynamoDB</text>
+  <text x="754" y="128" class="s">events · baselines · alerts</text>
+  <text x="754" y="146" class="s">digests · dedupe (TTL)</text>
+  <rect x="740" y="210" width="200" height="96" class="box data"/>
+  <text x="754" y="236" class="t">Step Functions</text>
+  <text x="754" y="256" class="s">1. chime: “press doorbell if OK”</text>
+  <text x="754" y="274" class="s">2. caregiver 1, wait 15 min</text>
+  <text x="754" y="292" class="s">3. caregiver 2, then unresolved</text>
+  <rect x="740" y="380" width="200" height="72" class="box ai"/>
+  <text x="754" y="406" class="t">Amazon Bedrock</text>
+  <text x="754" y="426" class="s">Claude Opus 5.5</text>
+  <text x="754" y="443" class="s">narrates facts, never decides</text>
+
+  <!-- Family -->
+  <rect x="990" y="210" width="190" height="64" class="box edge"/>
+  <text x="1004" y="236" class="t">SNS SMS + SES email</text>
+  <text x="1004" y="256" class="s">reason + “I'm on it” link</text>
+  <rect x="990" y="330" width="190" height="64" class="box people"/>
+  <text x="1004" y="356" class="t">Caregivers</text>
+  <text x="1004" y="376" class="s">phone · email · dashboard</text>
+  <rect x="990" y="470" width="190" height="64" class="box people"/>
+  <text x="1004" y="496" class="t">Dashboard</text>
+  <text x="1004" y="516" class="s">React · S3 + CloudFront</text>
+
+  <!-- Flows -->
+  <path d="M210,92 H250" class="l"/>
+  <path d="M440,84 L480,68" class="l"/>
+  <path d="M440,100 L480,136" class="l"/>
+  <path d="M210,202 C340,202 380,150 480,146" class="l"/>
+  <text x="300" y="186" class="lbl">event history</text>
+  <path d="M690,68 L740,100" class="l"/>
+  <path d="M690,136 L740,130" class="l"/>
+  <path d="M440,274 L480,236" class="l"/>
+  <path d="M440,284 L480,296" class="l"/>
+  <path d="M440,302 C460,330 460,388 480,388" class="l"/>
+  <path d="M690,214 L740,160" class="l"/>
+  <path d="M690,290 C715,260 715,180 740,164" class="l"/>
+  <path d="M690,236 H740" class="l"/>
+  <text x="696" y="230" class="lbl">alert</text>
+  <path d="M940,250 H990" class="l"/>
+  <path d="M1085,274 V330" class="l"/>
+  <path d="M690,388 H740" class="l"/>
+  <path d="M690,456 C715,456 715,430 740,428" class="l"/>
+  <path d="M990,502 C840,502 760,524 690,524" class="l"/>
+  <path d="M990,490 C860,480 760,456 690,456" class="l"/>
+  <text x="820" y="480" class="lbl">“How was Mom's week?”</text>
+  <path d="M440,502 L480,512" class="l"/>
+  <path d="M1180,362 C1196,362 1196,40 860,40 C600,40 460,40 440,62" class="l"/>
+  <text x="900" y="34" class="lbl">ack link resumes the workflow (/ack)</text>
+</svg>

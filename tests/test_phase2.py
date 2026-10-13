@@ -5,8 +5,8 @@ import json
 import time
 from datetime import datetime, timedelta, timezone
 
-from core import linking, webhook
-from core.ring_client import RingClient, Tokens, exchange_code
+from ring_routine_baseline import linking, webhook
+from ring_routine_baseline.ring_client import RingClient, Tokens, exchange_code
 from simulator.evaluate import SCENARIOS, load_scenario
 from simulator.replay import sign, to_webhook
 

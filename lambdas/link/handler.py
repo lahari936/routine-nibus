@@ -13,9 +13,9 @@ from dataclasses import asdict
 
 import boto3
 
-from core import linking
-from core.models import Caregiver, Home
-from core.ring_client import exchange_code
+from ring_routine_baseline import linking
+from ring_routine_baseline.models import Caregiver, Home
+from ring_routine_baseline.ring_client import exchange_code
 from lambdas.common.http import form, page, query
 from lambdas.common.ring import app_secret, client_from_tokens, hmac_key
 from lambdas.common.store import DynamoStore

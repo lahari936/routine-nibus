@@ -7,7 +7,7 @@ from datetime import date, datetime, timedelta, timezone
 import anthropic
 import boto3
 
-from core.facts import day_summary, plain_digest
+from ring_routine_baseline.facts import day_summary, plain_digest
 from lambdas.common.store import DynamoStore
 
 store = DynamoStore()

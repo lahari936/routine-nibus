@@ -23,7 +23,7 @@ import boto3
 from boto3.dynamodb.conditions import Key
 from botocore.exceptions import ClientError
 
-from core.models import Alert, Baseline, Event, Home
+from ring_routine_baseline.models import Alert, Baseline, Event, Home
 
 DAY = 86400
 

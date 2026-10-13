@@ -23,9 +23,9 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from threading import Lock
 
-from core import linking, webhook
-from core.models import Event
-from core.ring_client import API_BASE, RingClient, Tokens, exchange_code
+from ring_routine_baseline import linking, webhook
+from ring_routine_baseline.models import Event
+from ring_routine_baseline.ring_client import API_BASE, RingClient, Tokens, exchange_code
 
 DATA = Path(".devdata")
 STATE = DATA / "state.json"

@@ -1,9 +1,9 @@
 """Deviation rules. Pure, explainable, deterministic. Bedrock never decides whether to alert."""
 from datetime import datetime, time, timedelta
 
-from core import explain
-from core.baseline import VISIT_SLACK
-from core.models import Baseline, Deviation, Event, Home, minute_of_day
+from ring_routine_baseline import explain
+from ring_routine_baseline.baseline import VISIT_SLACK
+from ring_routine_baseline.models import Baseline, Deviation, Event, Home, minute_of_day
 
 MORNING_GRACE = 30  # minutes past first_activity p95
 VISIT_MIN_HIT_RATE = 0.8

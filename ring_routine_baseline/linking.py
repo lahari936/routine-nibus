@@ -12,7 +12,7 @@ import hmac
 import time
 from collections.abc import Callable, Iterable
 
-from core.ring_client import RingClient
+from ring_routine_baseline.ring_client import RingClient
 
 MAX_AGE_MS = 600_000
 

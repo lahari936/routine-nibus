@@ -3,9 +3,9 @@ they never see raw events and never decide whether something is an alert."""
 from datetime import date
 from typing import Any
 
-from core.baseline import VISIT_SLACK
-from core.explain import clock, clock_dt
-from core.models import Alert, Baseline, Event, Home
+from ring_routine_baseline.baseline import VISIT_SLACK
+from ring_routine_baseline.explain import clock, clock_dt
+from ring_routine_baseline.models import Alert, Baseline, Event, Home
 
 WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 

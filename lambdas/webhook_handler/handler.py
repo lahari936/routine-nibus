@@ -3,8 +3,8 @@ import json
 
 import boto3
 
-from core import webhook
-from core.models import Event
+from ring_routine_baseline import webhook
+from ring_routine_baseline.models import Event
 from lambdas.common.http import raw_body
 from lambdas.common.ring import hmac_key
 from lambdas.common.store import DynamoStore

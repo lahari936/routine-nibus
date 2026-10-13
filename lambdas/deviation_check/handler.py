@@ -8,9 +8,9 @@ from datetime import datetime, time, timedelta, timezone
 
 import boto3
 
-from core.baseline import compute_baseline
-from core.models import Alert
-from core.rules import evaluate
+from ring_routine_baseline.baseline import compute_baseline
+from ring_routine_baseline.models import Alert
+from ring_routine_baseline.rules import evaluate
 from lambdas.common.store import DynamoStore
 
 store = DynamoStore()

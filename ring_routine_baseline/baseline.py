@@ -3,8 +3,8 @@ from collections import Counter, defaultdict
 from datetime import date, datetime, timedelta
 from statistics import median, quantiles
 
-from core.explain import clock
-from core.models import Baseline, Event, FirstActivity, Home, RecurringVisit, minute_of_day
+from ring_routine_baseline.explain import clock
+from ring_routine_baseline.models import Baseline, Event, FirstActivity, Home, RecurringVisit, minute_of_day
 
 MIN_DAYS = 7  # below this the baseline is "learning"
 DEFAULT_FIRST_ACTIVITY = 10 * 60

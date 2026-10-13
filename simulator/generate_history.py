@@ -10,7 +10,7 @@ import json
 import random
 from datetime import date, datetime, time, timedelta, timezone
 
-from core.models import Event, EventKind, Home
+from ring_routine_baseline.models import Event, EventKind, Home
 
 HOME = Home(id="home-1", name="Mom's house", timezone="America/New_York")
 DEVICES = {"doorbell": False, "front_door": True, "hall_motion": True, "kitchen_motion": True}

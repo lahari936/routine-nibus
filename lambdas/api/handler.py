@@ -9,7 +9,7 @@ PUT /api/homes/{home_id}/settings           partial Home update
 import json
 from datetime import datetime, timedelta, timezone
 
-from core.models import Home
+from ring_routine_baseline.models import Home
 from lambdas.common.http import as_json, query
 from lambdas.common.store import DynamoStore
 

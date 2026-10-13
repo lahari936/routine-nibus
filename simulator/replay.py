@@ -15,7 +15,7 @@ import uuid
 from datetime import date, datetime, timezone
 from pathlib import Path
 
-from core.models import Event
+from ring_routine_baseline.models import Event
 from simulator.evaluate import load_scenario
 
 RING_TYPES = {"ding": "button_press", "contact_open": "contact_sensor_faulted",

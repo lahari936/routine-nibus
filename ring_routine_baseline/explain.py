@@ -1,7 +1,7 @@
 """One-sentence, caregiver-readable reasons. No jargon, no medical claims."""
 from datetime import datetime
 
-from core.models import Baseline, RecurringVisit, minute_of_day
+from ring_routine_baseline.models import Baseline, RecurringVisit, minute_of_day
 
 
 def clock(minutes: float) -> str:

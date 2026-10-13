@@ -1,7 +1,7 @@
 """Nightly: recompute each home's baseline from its last 28 days. Input {"home_id"} limits it to one home."""
 from datetime import datetime, time, timedelta, timezone
 
-from core.baseline import compute_baseline
+from ring_routine_baseline.baseline import compute_baseline
 from lambdas.common.store import DynamoStore
 
 store = DynamoStore()

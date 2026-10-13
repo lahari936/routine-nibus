@@ -13,7 +13,7 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from typing import Any
 
-from core.models import Event
+from ring_routine_baseline.models import Event
 
 API_BASE = "https://api.amazonvision.com"
 TOKEN_URL = "https://oauth.ring.com/oauth/token"

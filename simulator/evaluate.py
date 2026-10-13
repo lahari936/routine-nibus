@@ -7,9 +7,9 @@ from pathlib import Path
 
 import yaml
 
-from core.baseline import compute_baseline
-from core.models import Deviation, Event, Home
-from core.rules import evaluate
+from ring_routine_baseline.baseline import compute_baseline
+from ring_routine_baseline.models import Deviation, Event, Home
+from ring_routine_baseline.rules import evaluate
 from simulator.generate_history import HOME, generate_history, make_event
 
 SCENARIOS = Path(__file__).parent / "scenarios"
